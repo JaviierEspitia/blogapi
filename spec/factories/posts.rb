@@ -12,4 +12,12 @@ FactoryBot.define do
     }
     user # references a user of Factory bot
   end
+
+  factory :published_post, class: 'Post' do
+    title { Faker::Lorem.sentence }
+    content { Faker::Lorem.paragraph }
+    published { true }
+    user # references a user of Factory bot
+  end
+
 end

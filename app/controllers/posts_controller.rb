@@ -9,7 +9,10 @@ class PostsController < ApplicationController
   end
   def index
     @posts = Post.where(published: true)
-    render json: @posts, status: :ok
+    if params[:search].present?
+      @posts = PostsSearchService.search(@posts, params[:search])
+    end
+    render json: @posts.includes(:user), status: :ok # includes permit get users of posts solve N+1 query
   end
 
   def show
