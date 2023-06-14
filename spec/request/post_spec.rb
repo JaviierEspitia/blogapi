@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Health endpoint", type: :request do
+RSpec.describe "Posts", type: :request do
 
   describe "GET /posts" do
 
